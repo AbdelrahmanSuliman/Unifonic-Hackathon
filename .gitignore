@@ -1,0 +1,15 @@
+pycache/
+*.pyc
+venv/
+.env
+
+*.pth
+*.bin
+*.safetensors
+ml_engine/models/
+ml_engine/data/
+
+node_modules/
+.next/
+
+.DS_Store
