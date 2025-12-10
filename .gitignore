@@ -2,7 +2,8 @@ pycache/
 *.pyc
 venv/
 .env
-
+venv/
+.venv/
 *.pth
 *.bin
 *.safetensors

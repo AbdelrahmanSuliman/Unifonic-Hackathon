@@ -1,20 +1,18 @@
 version: '3.8'
 
 services:
-  # The Brain (FastAPI)
   backend:
     build: ./backend
     ports:
       - "8000:8000"
     volumes:
       - ./backend:/app
-      - ./data_storage:/data  # Shared folder for logs/db
+      - ./data_storage:/data  
     environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY} # For the "Judge"
+      - OPENAI_API_KEY=${OPENAI_API_KEY} 
     depends_on:
       - ml-engine
 
-  # The Face (React/Next.js)
   frontend:
     build: ./frontend
     ports:
@@ -23,8 +21,6 @@ services:
       - ./frontend:/app
       - /app/node_modules
 
-  # The Muscle (ML Model Server)
-  # NOTE: This requires NVIDIA Container Toolkit if running locally with GPU
   ml-engine:
     build: ./ml_engine
     ports:
